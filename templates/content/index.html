@@ -1,0 +1,44 @@
+{% extends "base.html" %}
+
+{% block content %}
+{#  <div class="pcoded-main-container">#}
+    <div class="pcoded-content">
+      <div class="page-header bg-light border rounded-3">
+{#        <div class="page-block bg-light border rounded-3">#}
+{#          <div class="bg-light border rounded-3">#}
+            <div>
+              <h1>Newspaper Manager Home</h1>
+              <p>Welcome to Newspaper Manager!</p>
+            </div>
+{#          </div>#}
+{#        </div>#}
+      </div>
+
+
+      <div class="bg-light border rounded-3">
+        <div class="row">
+          <div class="col-sm-12">
+            <div class="card" style="height: auto">
+              <div class="card-header">
+                <h2>Dynamic content</h2>
+                <p>The Newspaper Manager has the following record counts:</p>
+              </div>
+              <div class="card-body">
+                <ul>
+                  <li><strong>Newspapers:</strong> {{ num_newspapers }}</li>
+                  <li><strong>Redactors:</strong> {{ num_redactors }}</li>
+                  <li><strong>Topics:</strong> {{ num_topics }}</li>
+                  <li><strong>Articles:</strong> {{ num_articles }}</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <p>You have visited this page
+          {{ num_visits }} time{{ num_visits|pluralize }}.
+      </p>
+    </div>
+{#  </div>#}
+
+{% endblock %}
