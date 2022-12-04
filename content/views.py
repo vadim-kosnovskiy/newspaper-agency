@@ -135,3 +135,18 @@ class RedactorListView(LoginRequiredMixin, generic.ListView):
                 username__icontains=form.cleaned_data["username"])
 
         return self.queryset
+
+
+class RedactorCreateView(LoginRequiredMixin, generic.CreateView):
+    model = Redactor
+    form_class = RedactorCreationForm
+
+
+class RedactorDetailView(LoginRequiredMixin, generic.DetailView):
+    model = Redactor
+    queryset = Redactor.objects.all()
+
+    def get_context_data(self, *, object_list=None, **kwargs):
+        context = super(RedactorDetailView, self).get_context_data(**kwargs)
+        context["num_newspapers"] = Newspaper.objects.filter(publishers__id=self.kwargs["pk"]).count()
+        return context
