@@ -1,0 +1,108 @@
+.page-header {
+    box-shadow: 0 1px 2.94px 0.06px rgba(4, 26, 55, 0.16);
+    background: #fff;
+    padding: 20px 25px;
+    border-radius: 5px;
+}
+
+.row {
+    --bs-gutter-x: 1.5rem;
+    --bs-gutter-y: 0;
+    display: flex;
+    flex-wrap: wrap;
+    margin-top: calc(-1 * var(--bs-gutter-y));
+    margin-right: calc(-.5 * var(--bs-gutter-x));
+    margin-left: calc(-.5 * var(--bs-gutter-x));
+}
+
+.pcoded-content {
+    position: relative;
+    display: block;
+    padding: 25px;
+}
+
+.card:hover {
+    box-shadow: 0 0 25px -5px #9e9c9e;
+}
+
+.card {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+    word-wrap: break-word;
+    background-color: #fff;
+    background-clip: border-box;
+    border: 0 solid rgba(0, 0, 0, 0.125);
+    border-radius: 5px;
+}
+
+.card-header {
+    padding: 25px 25px;
+    margin-bottom: 0;
+    background-color: transparent;
+    border-bottom: 0 solid rgba(0, 0, 0, 0.125);
+}
+
+.card-body {
+    flex: 1 1 auto;
+    padding: 25px 25px;
+}
+
+.button-search {
+    height: 40px;
+    width: 40px;
+}
+
+.form-inline {
+    display: inline-flex;
+}
+
+.link-to-page {
+    float: right;
+    margin: 0 2px 0 2px;
+}
+
+a {
+    text-decoration: none;
+}
+
+a:hover {
+    color: blue;
+}
+
+.form-group {
+    padding-right: 10px;
+}
+
+.select-custom {
+    padding-top: 10px;
+}
+
+.dropdown-item {
+    display: block;
+    width: 100%;
+    padding: 0.25rem 1rem;
+    clear: both;
+    font-weight: 400;
+    color: #212529;
+    text-align: inherit;
+    white-space: nowrap;
+    background-color: transparent;
+    border: 0;
+}
+
+.nav {
+    display: flex;
+    flex-wrap: wrap;
+    padding-left: 0;
+    margin-bottom: 0;
+    list-style: none;
+}
+.pe-none {
+    pointer-events: none;
+}
+
+.me-2 {
+    margin-right: 0.5rem;
+}
