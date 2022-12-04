@@ -3,6 +3,9 @@ from django.contrib.auth.mixins import LoginRequiredMixin
 from django.shortcuts import render
 from django.views import generic
 
+from .forms import (ArticleNewspaperSelectForm, ArticleTopicSelectForm,
+                    TopicSearchForm, NewspaperSearchForm, RedactorSearchForm
+                    )
 from .models import Redactor, Newspaper, Topic, Article
 
 
