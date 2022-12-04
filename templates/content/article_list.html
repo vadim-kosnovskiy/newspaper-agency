@@ -1,0 +1,44 @@
+{% extends "base.html" %}
+{% load static %}
+{% load crispy_forms_filters %}
+
+{% block content %}
+  <div class="pcoded-content">
+    <div class="card">
+      <div class="card-header">
+        <h2>
+          Article List
+          <a href="{% url 'content:article-create' %}" class="btn btn-outline-primary link-to-page">
+            Create
+          </a>
+        </h2>
+        <div class="select-custom">
+          <form action="" method="get" class="form-inline">
+            {{ article_topic_select|crispy }}
+            {{ article_newspaper_select|crispy }}
+            <input type="image" id="image" alt="Submit" src="/static/image/searching.png" class="button-search">
+          </form>
+        </div>
+      </div>
+{#  <form action="" method="get" class="form-inline">#}
+{#    {{ article_newspaper_select|crispy }}#}
+{#    <input type="image" id="image" alt="Submit" src="/static/image/searching.png" class="button">#}
+{#  </form>#}
+      <div class="card-body table-border-style">
+        <br>
+        {% if article_list %}
+          <ul>
+            {% for article in article_list %}
+              <li>
+                <a href="{% url "content:article-detail" pk=article.id %}">{{ article.article_title }}</a>
+                <br>{{ article.author }}
+              </li>
+            {% endfor %}
+          </ul>
+        {% else %}
+          <p>There are no articles in content</p>
+        {% endif %}
+      </div>
+    </div>
+  </div>
+{% endblock %}

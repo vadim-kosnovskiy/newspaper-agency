@@ -1,0 +1,54 @@
+{% extends "base.html" %}
+{% load crispy_forms_filters %}
+
+{% block content %}
+  <div class="pcoded-content">
+    <div class="card">
+      <div class="card-header">
+        <h2>
+          Redactor List
+          <a href="{% url 'content:redactor-create' %}" class="btn btn-outline-primary link-to-page">
+            Create
+          </a>
+        </h2>
+        <div class="select-custom">
+          <form action="" method="get" class="form-inline">
+            {{ redactor_search|crispy }}
+            <input type="image" id="image" alt="Submit" src="/static/image/searching.png" class="button-search">
+          </form>
+        </div>
+      </div>
+
+      <div class="card-body table-border-style">
+        <div class="table-responsive">
+          <table class="table table-hover">
+            {% if redactor_list %}
+              <thead>
+                <tr>
+                  <th>Name</th>
+                  <th>Username</th>
+                  <th>Email</th>
+                  <th>Experience</th>
+                </tr>
+              </thead>
+              {% for redactor in redactor_list %}
+                <tbody>
+                  <tr>
+                    <td>{{ redactor.first_name }} {{ redactor.last_name }}</td>
+                    <td><a href="{{ redactor.get_absolute_url }}">{{ redactor.username }} {% if user == redactor %} (Me){% endif %}</a></td>
+                    <td>{{ redactor.email }}</td>
+                    <td>{{ redactor.years_of_experience }}</td>
+                  </tr>
+                </tbody>
+              {% endfor %}
+            {% else %}
+              <p>There are no redactors in the service.</p>
+            {% endif %}
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+{% endblock %}

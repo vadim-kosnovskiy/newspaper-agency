@@ -1,0 +1,52 @@
+{% extends "base.html" %}
+{% load static %}
+{% load crispy_forms_filters %}
+
+{% block content %}
+  <div class="pcoded-content">
+    <div class="card">
+      <div class="card-header">
+        <h2>
+          Topic List
+          <a href="{% url 'content:topic-create' %}" class="btn btn-outline-primary link-to-page">
+            Create
+          </a>
+        </h2>
+        <div class="select-custom">
+          <form action="" method="get" class="form-inline">
+            {{ topic_search|crispy }}
+            <input type="image" id="image" alt="Submit" src="/static/image/searching.png" class="button-search">
+          </form>
+        </div>
+      </div>
+      <div class="card-body table-border-style">
+
+        {% if topic_list %}
+          <table class="table table-hover">
+            {% for topic in topic_list %}
+              <tr>
+                <td>
+                    {{ topic.name }}
+                </td>
+                <td>
+                    <a href="{% url 'content:topic-update' pk=topic.id %}">
+                      Update
+                    </a>
+                  </td>
+                  <td>
+                    <a style="color: red"
+                      href="{% url 'content:topic-delete' pk=topic.id %}">
+                      Delete
+                    </a>
+                  </td>
+              </tr>
+            {% endfor %}
+          </table>
+
+        {% else %}
+            <p>There are no topic in the service.</p>
+        {% endif %}
+      </div>
+    </div>
+  </div>
+{% endblock %}
