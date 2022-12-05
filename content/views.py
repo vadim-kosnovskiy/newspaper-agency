@@ -65,6 +65,27 @@ class ArticleListView(LoginRequiredMixin, generic.ListView):
         return self.queryset
 
 
+class ArticleCreateView(LoginRequiredMixin, generic.CreateView):
+    model = Article
+    fields = "__all__"
+    success_url = reverse_lazy("content:article-create")
+
+
+class ArticleDetailView(LoginRequiredMixin, generic.DetailView):
+    model = Article
+
+
+class ArticleUpdateView(LoginRequiredMixin, generic.UpdateView):
+    model = Article
+    fields = "__all__"
+    success_url = reverse_lazy("content:article-list")
+
+
+class ArticleDeleteView(LoginRequiredMixin, generic.DeleteView):
+    model = Article
+    success_url = reverse_lazy("content:article-list")
+
+
 class TopicListView(LoginRequiredMixin, generic.ListView):
     model = Topic
     context_object_name = "topic_list"
