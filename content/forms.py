@@ -1,6 +1,7 @@
 from django import forms
+from django.contrib.auth.forms import UserCreationForm
 
-from content.models import Newspaper, Topic
+from content.models import Newspaper, Topic, Redactor
 
 
 class NewspaperSearchForm(forms.Form):
@@ -10,6 +11,16 @@ class NewspaperSearchForm(forms.Form):
         label="",
         widget=forms.TextInput(attrs={"placeholder": "Search by newspaper.."})
     )
+
+
+class RedactorCreationForm(UserCreationForm):
+    class Meta(UserCreationForm.Meta):
+        model = Redactor
+        fields = UserCreationForm.Meta.fields + (
+            "first_name",
+            "last_name",
+            "years_of_experience",
+        )
 
 
 class RedactorSearchForm(forms.Form):

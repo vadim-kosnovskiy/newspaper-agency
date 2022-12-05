@@ -4,7 +4,7 @@ from django.shortcuts import render
 from django.views import generic
 
 from .forms import (ArticleNewspaperSelectForm, ArticleTopicSelectForm,
-                    TopicSearchForm, NewspaperSearchForm, RedactorSearchForm
+                    TopicSearchForm, NewspaperSearchForm, RedactorSearchForm, RedactorCreationForm
                     )
 from .models import Redactor, Newspaper, Topic, Article
 
