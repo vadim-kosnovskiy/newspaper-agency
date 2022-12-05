@@ -13,6 +13,16 @@ class NewspaperSearchForm(forms.Form):
     )
 
 
+class NewspaperTopicSelectForm(forms.Form):
+    queryset = Topic.objects.all()
+    topic_choices = [(inst.id, inst) for inst in queryset]
+    topic_choices.append(("", "-- select topic --"))
+    topic_id = forms.ChoiceField(
+        choices=topic_choices,
+        label="",
+    )
+
+
 class RedactorCreationForm(UserCreationForm):
     class Meta(UserCreationForm.Meta):
         model = Redactor
