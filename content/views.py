@@ -152,7 +152,8 @@ class NewspaperDetailView(LoginRequiredMixin, generic.DetailView):
             initial={"topic_id": topic_id}
         )
         if topic_id:
-            context["article_list"] = Article.objects.filter(newspaper__id=self.kwargs["pk"]).filter(topic__id=topic_id)
+            context["article_list"] = Article.objects.filter(
+                newspaper__id=self.kwargs["pk"]).filter(topic__id=topic_id)
             print(context["article_list"].filter(topic__id=topic_id))
             print("topic_id:  ",  topic_id)
 
@@ -206,7 +207,8 @@ class RedactorDetailView(LoginRequiredMixin, generic.DetailView):
 
     def get_context_data(self, *, object_list=None, **kwargs):
         context = super(RedactorDetailView, self).get_context_data(**kwargs)
-        context["num_newspapers"] = Newspaper.objects.filter(publishers__id=self.kwargs["pk"]).count()
+        context["num_newspapers"] = Newspaper.objects.filter(
+            publishers__id=self.kwargs["pk"]).count()
         return context
 
 

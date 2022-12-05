@@ -10,6 +10,26 @@ from content.views import (
 urlpatterns = [
     path("", index, name="index"),
     path("articles/", ArticleListView.as_view(), name="article-list"),
+    path(
+        "articles/create/",
+        ArticleCreateView.as_view(),
+        name="article-create"
+    ),
+    path(
+        "articles/<int:pk>/detail/",
+        ArticleDetailView.as_view(),
+        name="article-detail"
+    ),
+    path(
+        "articles/<int:pk>/update/",
+        ArticleUpdateView.as_view(),
+        name="article-update"
+    ),
+    path(
+        "articles/<int:pk>/delete/",
+        ArticleDeleteView.as_view(),
+        name="article-delete"
+    ),
     path("topics/", TopicListView.as_view(), name="topic-list"),
     path(
         "topics/create/",
