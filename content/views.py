@@ -1,6 +1,7 @@
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.shortcuts import render
+from django.urls import reverse_lazy
 from django.views import generic
 
 from .forms import (ArticleNewspaperSelectForm, ArticleTopicSelectForm,
@@ -150,3 +151,14 @@ class RedactorDetailView(LoginRequiredMixin, generic.DetailView):
         context = super(RedactorDetailView, self).get_context_data(**kwargs)
         context["num_newspapers"] = Newspaper.objects.filter(publishers__id=self.kwargs["pk"]).count()
         return context
+
+
+class RedactorUpdateView(LoginRequiredMixin, generic.UpdateView):
+    model = Redactor
+    form_class = RedactorUpdateForm
+    success_url = reverse_lazy("content:redactor-list")
+
+
+class RedactorDeleteView(LoginRequiredMixin, generic.DeleteView):
+    model = Redactor
+    success_url = reverse_lazy("content:redactor-list")
