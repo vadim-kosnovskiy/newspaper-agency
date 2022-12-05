@@ -58,54 +58,51 @@
 </svg>
 
 <div class="container">
-{#  <div class="d-flex flex-column flex-shrink-0 p-3 bg-light" style="width: 280px;">#}
-    <hr>
-    <ul class="nav nav-pills flex-column mb-auto">
-      <li class="nav-item">
-        <a href="{% url 'content:index' %}" class="nav-link active" aria-current="page">
-          <svg class="bi pe-none me-2" width="16" height="16"><use xlink:href="#home"/></svg>
-          Home
-        </a>
-      </li>
-      <li>
-        <a href="{% url 'content:redactor-list' %}" class="nav-link link-dark">
-          <svg class="bi pe-none me-2" width="16" height="16"><use xlink:href="#chevron-right"/></svg>
-          Redactors
-        </a>
-      </li>
-      <li>
-        <a href="{% url 'content:newspaper-list' %}" class="nav-link link-dark">
-          <svg class="bi pe-none me-2" width="16" height="16"><use xlink:href="#chevron-right"/></svg>
-          Newspapers
-        </a>
-      </li>
-      <li>
-        <a href="{% url 'content:topic-list' %}" class="nav-link link-dark">
-          <svg class="bi pe-none me-2" width="16" height="16"><use xlink:href="#chevron-right"/></svg>
-          Topics
-        </a>
-      </li>
-      <li>
-        <a href="{% url 'content:article-list' %}" class="nav-link link-dark">
-          <svg class="bi pe-none me-2" width="16" height="16"><use xlink:href="#chevron-right"/></svg>
-          Articles
-        </a>
-      </li>
-    </ul>
-    <hr>
-    <div class="dropdown">
-      <a href="{{ user.get_absolute_url }}" class="d-flex align-items-center link-dark text-decoration-none dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
-        <img src="https://github.com/mdo.png" alt="" width="32" height="32" class="rounded-circle me-2">
-        <strong>{{ user.get_username }}</strong>
+  <hr>
+  <ul class="nav nav-pills flex-column mb-auto">
+    <li class="nav-item">
+      <a href="{% url 'content:index' %}" class="nav-link active" aria-current="page">
+        <svg class="bi pe-none me-2" width="16" height="16"><use xlink:href="#home"/></svg>
+        Home
       </a>
-      <ul class="dropdown-menu text-small shadow">
-  {#      <li><hr class="dropdown-divider"></li>#}
-        {% if user.is_authenticated %}
-          <li><a class="dropdown-item" href="{% url 'logout'%}?next={{request.path}}">Logout</a></li>
-        {% else %}
-          <li><a class="dropdown-item" href="{% url 'login'%}?next={{request.path}}">Login</a></li>
-        {% endif %}
-      </ul>
-    </div>
-{#  </div>#}
+    </li>
+    <li>
+      <a href="{% url 'content:redactor-list' %}" class="nav-link link-dark">
+        <svg class="bi pe-none me-2" width="16" height="16"><use xlink:href="#chevron-right"/></svg>
+        Redactors
+      </a>
+    </li>
+    <li>
+      <a href="{% url 'content:newspaper-list' %}" class="nav-link link-dark">
+        <svg class="bi pe-none me-2" width="16" height="16"><use xlink:href="#chevron-right"/></svg>
+        Newspapers
+      </a>
+    </li>
+    <li>
+      <a href="{% url 'content:topic-list' %}" class="nav-link link-dark">
+        <svg class="bi pe-none me-2" width="16" height="16"><use xlink:href="#chevron-right"/></svg>
+        Topics
+      </a>
+    </li>
+    <li>
+      <a href="{% url 'content:article-list' %}" class="nav-link link-dark">
+        <svg class="bi pe-none me-2" width="16" height="16"><use xlink:href="#chevron-right"/></svg>
+        Articles
+      </a>
+    </li>
+  </ul>
+  <hr>
+  <div class="dropdown">
+    <a href="{{ user.get_absolute_url }}" class="d-flex align-items-center link-dark text-decoration-none dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+      <img src="https://github.com/mdo.png" alt="" width="32" height="32" class="rounded-circle me-2">
+      <strong>{{ user.get_username }}</strong>
+    </a>
+    <ul class="dropdown-menu text-small shadow">
+      {% if user.is_authenticated %}
+        <li><a class="dropdown-item" href="{% url 'logout'%}?next={{request.path}}">Logout</a></li>
+      {% else %}
+        <li><a class="dropdown-item" href="{% url 'login'%}?next={{request.path}}">Login</a></li>
+      {% endif %}
+    </ul>
+  </div>
 </div>

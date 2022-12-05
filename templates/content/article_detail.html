@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+
+{% block content %}
+  <div class="pcoded-content">
+    <div class="card">
+      <div class="card-header">
+        <h3>
+          {{ article.article_title }}
+        </h3>
+        <br><hr>
+
+        <p><strong>Author:  </strong> {{ article.author }}</p>
+        <p><strong>Newspaper:</strong> {{ article.newspaper }}</p>
+        <p><strong>Topic:  </strong>{{ article.topic.name }}</p><br>
+        <p><strong>Date of publication:  </strong>{{ article.published_date }}</p>
+        <p><strong>Go to publication:  </strong>
+        <a href={{ article.hyper_reference}}>{{ article.hyper_reference }}</a></p><br>
+        <br>
+        <a href="{% url 'content:article-delete' pk=article.id %}" class="btn btn-outline-danger link-to-page">
+            Delete
+        </a>
+
+        <a href="{% url 'content:article-update' pk=article.id %}" class="btn btn-outline-primary link-to-page">
+          Update
+        </a>
+      </div>
+    </div>
+  </div>
+{% endblock %}
