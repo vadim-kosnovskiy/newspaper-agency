@@ -23,6 +23,12 @@ class RedactorCreationForm(UserCreationForm):
         )
 
 
+class RedactorUpdateForm(forms.ModelForm):
+    class Meta:
+        model = Redactor
+        fields = "__all__"
+
+
 class RedactorSearchForm(forms.Form):
     username = forms.CharField(
         max_length=255,
