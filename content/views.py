@@ -130,6 +130,44 @@ class NewspaperListView(LoginRequiredMixin, generic.ListView):
         return self.queryset
 
 
+class NewspaperCreateView(LoginRequiredMixin, generic.CreateView):
+    model = Newspaper
+    form_class = NewspaperForm
+    success_url = reverse_lazy("content:newspaper-list")
+
+
+class NewspaperDetailView(LoginRequiredMixin, generic.DetailView):
+    model = Newspaper
+    # context_object_name = "newspaper_detail"
+    paginate_by = 5
+
+    def get_context_data(self, *, object_list=None, **kwargs):
+        context = super(NewspaperDetailView, self).get_context_data(**kwargs)
+        # context["newspaper_topic_select"] = NewspaperTopicSelectForm()
+
+        topic_id = self.request.GET.get("topic_id", "")
+        context["newspaper_topic_select"] = NewspaperTopicSelectForm(
+            initial={"topic_id": topic_id}
+        )
+        if topic_id:
+            context["article_list"] = Article.objects.filter(newspaper__id=self.kwargs["pk"]).filter(topic__id=topic_id)
+            print(context["article_list"].filter(topic__id=topic_id))
+            print("topic_id:  ",  topic_id)
+
+        return context
+
+
+class NewspaperUpdateView(LoginRequiredMixin, generic.UpdateView):
+    model = Newspaper
+    fields = "__all__"
+    success_url = reverse_lazy("content:newspaper-list")
+
+
+class NewspaperDeleteView(LoginRequiredMixin, generic.DeleteView):
+    model = Newspaper
+    success_url = reverse_lazy("content:newspaper-list")
+
+
 class RedactorListView(LoginRequiredMixin, generic.ListView):
     model = Redactor
     paginate_by = 5
