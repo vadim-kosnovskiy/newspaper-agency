@@ -1,0 +1,58 @@
+{% extends "base.html" %}
+{% load crispy_forms_filters %}
+
+{% block content %}
+  <div class="pcoded-content">
+    <div class="card">
+      <div class="card-header">
+        <h2>
+          {{ newspaper.title }}
+        </h2>
+        <hr>
+        <form action="" method="get" class="form-inline">
+          {{ newspaper_topic_select|crispy }}
+          <input type="image" id="image" alt="Submit" src="/static/image/searching.png" class="button-search">
+        </form>
+      </div>
+      <div class="card-body table-border-style">
+        <p><strong>Articles:</strong></p>
+        {% if article_list %}
+          {% for article in article_list %}
+            <li>{{ article.article_title }}</li>
+          {% endfor %}
+        {% else %}
+          <p>Not selected topic</p>
+        {% endif %}
+
+        <br>
+
+        <ul>
+        {% for topic in newspaper.topics.all %}
+          <li>{{ topic.name }}</li>
+        {% endfor %}
+        </ul>
+
+        <p><strong>Publishers:</strong></p>
+        <ul>
+          {% for publisher in newspaper.publishers.all %}
+            <li>{{ publisher.username }} ({{ publisher.first_name }} {{ publisher.last_name }})</li>
+          {% endfor %}
+        </ul>
+        <hr>
+        <ul>
+          {% for newspaper in newspaper.newspapers.all %}
+            <li>{{ newspaper.username }} ({{ newspaper.first_name }} {{ newspaper.last_name }})</li>
+          {% endfor %}
+        </ul>
+
+          <a href="{% url 'content:newspaper-delete' pk=newspaper.id %}" class="btn btn-outline-danger link-to-page">
+            Delete
+        </a>
+
+        <a href="{% url 'content:newspaper-update' pk=newspaper.id %}" class="btn btn-outline-primary link-to-page">
+          Update
+        </a>
+
+    </div>
+  </div>
+{% endblock %}
