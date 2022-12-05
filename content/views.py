@@ -5,7 +5,7 @@ from django.urls import reverse_lazy
 from django.views import generic
 
 from .forms import (ArticleNewspaperSelectForm, ArticleTopicSelectForm,
-                    TopicSearchForm, NewspaperSearchForm, RedactorSearchForm, RedactorCreationForm
+                    TopicSearchForm, NewspaperSearchForm, RedactorSearchForm, RedactorCreationForm, RedactorUpdateForm
                     )
 from .models import Redactor, Newspaper, Topic, Article
 
