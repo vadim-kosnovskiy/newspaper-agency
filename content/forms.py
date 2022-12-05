@@ -4,6 +4,13 @@ from django.contrib.auth.forms import UserCreationForm
 from content.models import Newspaper, Topic, Redactor
 
 
+class NewspaperForm(forms.ModelForm):
+
+    class Meta:
+        model = Newspaper
+        fields = "__all__"
+
+
 class NewspaperSearchForm(forms.Form):
     title = forms.CharField(
         max_length=255,

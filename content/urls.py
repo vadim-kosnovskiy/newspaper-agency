@@ -4,7 +4,7 @@ from content.views import (
     index,
     TopicListView, NewspaperListView, RedactorListView, ArticleListView,
     RedactorDetailView, RedactorCreateView, RedactorDeleteView, RedactorUpdateView, TopicDeleteView, TopicUpdateView,
-    TopicCreateView,
+    TopicCreateView, NewspaperDetailView, NewspaperCreateView, NewspaperUpdateView, NewspaperDeleteView,
 )
 
 urlpatterns = [
