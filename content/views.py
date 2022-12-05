@@ -88,6 +88,23 @@ class TopicListView(LoginRequiredMixin, generic.ListView):
         return self.queryset
 
 
+class TopicCreateView(LoginRequiredMixin, generic.CreateView):
+    model = Topic
+    fields = "__all__"
+    success_url = reverse_lazy("content:topic-list")
+
+
+class TopicUpdateView(LoginRequiredMixin, generic.UpdateView):
+    model = Topic
+    fields = "__all__"
+    success_url = reverse_lazy("content:topic-list")
+
+
+class TopicDeleteView(LoginRequiredMixin, generic.DeleteView):
+    model = Topic
+    success_url = reverse_lazy("content:topic-list")
+
+
 class NewspaperListView(LoginRequiredMixin, generic.ListView):
     model = Newspaper
     paginate_by = 5
