@@ -5,7 +5,6 @@ from content.models import Newspaper, Topic, Redactor
 
 
 class NewspaperForm(forms.ModelForm):
-
     class Meta:
         model = Newspaper
         fields = "__all__"
@@ -16,7 +15,7 @@ class NewspaperSearchForm(forms.Form):
         max_length=255,
         required=False,
         label="",
-        widget=forms.TextInput(attrs={"placeholder": "Search by newspaper.."})
+        widget=forms.TextInput(attrs={"placeholder": "Search by newspaper.."}),
     )
 
 
@@ -51,9 +50,7 @@ class RedactorSearchForm(forms.Form):
         max_length=255,
         required=False,
         label="",
-        widget=forms.TextInput(
-            attrs={"placeholder": "Search by username.."}
-        )
+        widget=forms.TextInput(attrs={"placeholder": "Search by username.."}),
     )
 
 
@@ -62,9 +59,7 @@ class TopicSearchForm(forms.Form):
         max_length=255,
         required=False,
         label="",
-        widget=forms.TextInput(
-            attrs={"placeholder": "Search by topic.."}
-        )
+        widget=forms.TextInput(attrs={"placeholder": "Search by topic.."}),
     )
 
 

@@ -4,11 +4,17 @@ from django.shortcuts import render
 from django.urls import reverse_lazy
 from django.views import generic
 
-from .forms import (ArticleNewspaperSelectForm, ArticleTopicSelectForm,
-                    TopicSearchForm, NewspaperSearchForm, RedactorSearchForm,
-                    RedactorCreationForm, RedactorUpdateForm,
-                    NewspaperTopicSelectForm, NewspaperForm
-                    )
+from .forms import (
+    ArticleNewspaperSelectForm,
+    ArticleTopicSelectForm,
+    TopicSearchForm,
+    NewspaperSearchForm,
+    RedactorSearchForm,
+    RedactorCreationForm,
+    RedactorUpdateForm,
+    NewspaperTopicSelectForm,
+    NewspaperForm,
+)
 from .models import Redactor, Newspaper, Topic, Article
 
 
@@ -97,9 +103,7 @@ class TopicListView(LoginRequiredMixin, generic.ListView):
         context = super(TopicListView, self).get_context_data(**kwargs)
 
         name = self.request.GET.get("name", "")
-        context["topic_search"] = TopicSearchForm(
-            initial={"name": name}
-        )
+        context["topic_search"] = TopicSearchForm(initial={"name": name})
 
         return context
 
@@ -147,8 +151,7 @@ class NewspaperListView(LoginRequiredMixin, generic.ListView):
         form = NewspaperSearchForm(self.request.GET)
 
         if form.is_valid():
-            return self.queryset.filter(
-                title__icontains=form.cleaned_data["title"])
+            return self.queryset.filter(title__icontains=form.cleaned_data["title"])
 
         return self.queryset
 
@@ -174,9 +177,10 @@ class NewspaperDetailView(LoginRequiredMixin, generic.DetailView):
         )
         if topic_id:
             context["article_list"] = Article.objects.filter(
-                newspaper__id=self.kwargs["pk"]).filter(topic__id=topic_id)
+                newspaper__id=self.kwargs["pk"]
+            ).filter(topic__id=topic_id)
             print(context["article_list"].filter(topic__id=topic_id))
-            print("topic_id:  ",  topic_id)
+            print("topic_id:  ", topic_id)
 
         return context
 
@@ -201,9 +205,7 @@ class RedactorListView(LoginRequiredMixin, generic.ListView):
         context = super(RedactorListView, self).get_context_data(**kwargs)
 
         username = self.request.GET.get("username")
-        context["redactor_search"] = RedactorSearchForm(
-            initial={"username": username}
-        )
+        context["redactor_search"] = RedactorSearchForm(initial={"username": username})
 
         return context
 
@@ -212,7 +214,8 @@ class RedactorListView(LoginRequiredMixin, generic.ListView):
 
         if form.is_valid():
             return self.queryset.filter(
-                username__icontains=form.cleaned_data["username"])
+                username__icontains=form.cleaned_data["username"]
+            )
 
         return self.queryset
 
@@ -229,7 +232,8 @@ class RedactorDetailView(LoginRequiredMixin, generic.DetailView):
     def get_context_data(self, *, object_list=None, **kwargs):
         context = super(RedactorDetailView, self).get_context_data(**kwargs)
         context["num_newspapers"] = Newspaper.objects.filter(
-            publishers__id=self.kwargs["pk"]).count()
+            publishers__id=self.kwargs["pk"]
+        ).count()
         return context
 
 

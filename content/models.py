@@ -31,7 +31,9 @@ class Redactor(AbstractUser):
 
 class Newspaper(models.Model):
     title = models.CharField(max_length=255)
-    publishers = models.ManyToManyField(settings.AUTH_USER_MODEL, related_name="newspapers")
+    publishers = models.ManyToManyField(
+        settings.AUTH_USER_MODEL, related_name="newspapers"
+    )
 
     def __str__(self):
         return self.title
@@ -43,7 +45,9 @@ class Article(models.Model):
     published_date = models.DateField(null=True, blank=True)
     hyper_reference = models.CharField(max_length=255, null=True, blank=True)
     topic = models.ForeignKey(Topic, on_delete=models.SET_NULL, null=True, blank=True)
-    newspaper = models.ForeignKey(Newspaper, on_delete=models.SET_NULL, null=True, blank=True)
+    newspaper = models.ForeignKey(
+        Newspaper, on_delete=models.SET_NULL, null=True, blank=True
+    )
 
     class Meta:
         ordering = ["article_title"]
