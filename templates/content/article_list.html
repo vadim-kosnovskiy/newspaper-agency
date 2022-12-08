@@ -27,7 +27,7 @@
             {% for article in article_list %}
               <li>
                 <a href="{% url "content:article-detail" pk=article.id %}">{{ article.article_title }}</a>
-                <br>{{ article.author }}
+                <br>{{ article.author }} ({{ article.newspaper }})
               </li>
             {% endfor %}
           </ul>
