@@ -20,3 +20,28 @@ The application tracks editors and newspaper postings.
 #### Model diagram
 ![newspaper_agency_diagram](static/image/newspaper_agency_diagram.png)
 
+#### Screenshots
+
+Home page
+![newspaper_home](static/image/newspaper_home.png)
+
+Redactors page
+![newspaper_redactors](static/image/newspaper_redactors.png)
+
+Redactor detail page
+![newspaper_redactor_detail](static/image/newspaper_redactor_detail.png)
+
+Newspapers page
+![newspaper_newspapers](static/image/newspaper_newspapers.png)
+
+Newspaper detail page
+![newspaper_newspaper_detail](static/image/newspaper_newspaper_detail.png)
+
+Topics page
+![newspaper_topics](static/image/newspaper_topics.png)
+
+Articles page
+![newspaper_articles](static/image/newspaper_articles.png)
+
+Article detail page
+![newspaper_article_detail](static/image/newspaper_article_detail.png)
