@@ -99,6 +99,15 @@ a:hover {
     margin-bottom: 0;
     list-style: none;
 }
+
+.nav-link {
+    display: block;
+    padding: 0.5rem 1rem;
+    /*color: #4099ff;*/
+    color: #343a40;
+    transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out;
+}
+
 .pe-none {
     pointer-events: none;
 }

@@ -59,38 +59,55 @@
 
 <div class="container">
   <hr>
-  <ul class="nav nav-pills flex-column mb-auto">
+  <ul class="nav nav-pills flex-column list-group">
     <li class="nav-item">
-      <a href="{% url 'content:index' %}" class="nav-link active" aria-current="page">
+      <a href="{% url 'content:index' %}" id="Home" class="nav-link list-group-item list-group-item-action">
         <svg class="bi pe-none me-2" width="16" height="16"><use xlink:href="#home"/></svg>
         Home
       </a>
     </li>
-    <li>
-      <a href="{% url 'content:redactor-list' %}" class="nav-link link-dark">
+    <li class="nav-item">
+      <a href="{% url 'content:redactor-list' %}" id="Redactors" class="nav-link list-group-item list-group-item-action">
         <svg class="bi pe-none me-2" width="16" height="16"><use xlink:href="#chevron-right"/></svg>
         Redactors
       </a>
     </li>
-    <li>
-      <a href="{% url 'content:newspaper-list' %}" class="nav-link link-dark">
+    <li class="nav-item">
+      <a href="{% url 'content:newspaper-list' %}" id="Newspapers" class="nav-link list-group-item list-group-item-action">
         <svg class="bi pe-none me-2" width="16" height="16"><use xlink:href="#chevron-right"/></svg>
         Newspapers
       </a>
     </li>
-    <li>
-      <a href="{% url 'content:topic-list' %}" class="nav-link link-dark">
+    <li class="nav-item">
+      <a href="{% url 'content:topic-list' %}" id="Topics" class="nav-link list-group-item list-group-item-action">
         <svg class="bi pe-none me-2" width="16" height="16"><use xlink:href="#chevron-right"/></svg>
         Topics
       </a>
     </li>
-    <li>
-      <a href="{% url 'content:article-list' %}" class="nav-link link-dark">
+    <li class="nav-item">
+      <a href="{% url 'content:article-list' %}" id="Articles" class="nav-link list-group-item list-group-item-action">
         <svg class="bi pe-none me-2" width="16" height="16"><use xlink:href="#chevron-right"/></svg>
         Articles
       </a>
     </li>
   </ul>
+  <script>
+    if (window.location.pathname === "/"){
+        document.getElementById("Home").className += " active";
+    }
+    if (window.location.pathname === "/redactors/"){
+        document.getElementById("Redactors").className += " active";
+    }
+    if (window.location.pathname === "/newspapers/") {
+        document.getElementById("Newspapers").className += " active";
+    }
+    if (window.location.pathname === "/topics/"){
+        document.getElementById("Topics").className += " active";
+    }
+    if (window.location.pathname === "/articles/") {
+        document.getElementById("Articles").className += " active";
+    }
+  </script>
   <hr>
   <div class="dropdown">
     <a href="{{ user.get_absolute_url }}" class="d-flex align-items-center link-dark text-decoration-none dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
