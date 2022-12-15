@@ -21,7 +21,7 @@ class NewspaperSearchForm(forms.Form):
 
 class NewspaperTopicSelectForm(forms.Form):
     queryset = Topic.objects.all()
-    topic_choices = [(inst.id, inst) for inst in queryset]
+    topic_choices = [(topic.id, topic) for topic in queryset]
     topic_choices.append(("", "-- select topic --"))
     topic_id = forms.ChoiceField(
         choices=topic_choices,
@@ -65,7 +65,7 @@ class TopicSearchForm(forms.Form):
 
 class ArticleTopicSelectForm(forms.Form):
     queryset = Topic.objects.all()
-    topic_choices = [(inst.id, inst) for inst in queryset]
+    topic_choices = [(topic.id, topic) for topic in queryset]
     topic_choices.append(("", "-- select topic --"))
     topic_id = forms.ChoiceField(
         choices=topic_choices,
@@ -75,7 +75,7 @@ class ArticleTopicSelectForm(forms.Form):
 
 class ArticleNewspaperSelectForm(forms.Form):
     queryset = Newspaper.objects.all()
-    newspaper_choices = [(inst.id, inst) for inst in queryset]
+    newspaper_choices = [(newspaper.id, newspaper) for newspaper in queryset]
     newspaper_choices.append(("", "-- select newspaper --"))
     newspaper_id = forms.ChoiceField(
         choices=newspaper_choices,
