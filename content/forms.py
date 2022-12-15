@@ -76,7 +76,7 @@ class ArticleTopicSelectForm(forms.Form):
 class ArticleNewspaperSelectForm(forms.Form):
     queryset = Newspaper.objects.all()
     newspaper_choices = [(inst.id, inst) for inst in queryset]
-    newspaper_choices.append(("", "-- select newspaper"))
+    newspaper_choices.append(("", "-- select newspaper --"))
     newspaper_id = forms.ChoiceField(
         choices=newspaper_choices,
         label="",

@@ -164,12 +164,10 @@ class NewspaperCreateView(LoginRequiredMixin, generic.CreateView):
 
 class NewspaperDetailView(LoginRequiredMixin, generic.DetailView):
     model = Newspaper
-    # context_object_name = "newspaper_detail"
     paginate_by = 5
 
     def get_context_data(self, *, object_list=None, **kwargs):
         context = super(NewspaperDetailView, self).get_context_data(**kwargs)
-        # context["newspaper_topic_select"] = NewspaperTopicSelectForm()
 
         topic_id = self.request.GET.get("topic_id", "")
         context["newspaper_topic_select"] = NewspaperTopicSelectForm(
@@ -179,8 +177,6 @@ class NewspaperDetailView(LoginRequiredMixin, generic.DetailView):
             context["article_list"] = Article.objects.filter(
                 newspaper__id=self.kwargs["pk"]
             ).filter(topic__id=topic_id)
-            print(context["article_list"].filter(topic__id=topic_id))
-            print("topic_id:  ", topic_id)
 
         return context
 
