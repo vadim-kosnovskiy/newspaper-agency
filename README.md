@@ -2,6 +2,10 @@
 
 The application tracks editors and newspaper postings.
 
+### Check it out!
+
+[Newspaper Agency project deployed to Render](https://newspaper-agency-ec2a.onrender.com)
+
 ### Installation
 1. To work with the project, you must have python 3.8 or higher installed.
 2. Clone the forked repo
