@@ -2,7 +2,7 @@
 
 The application tracks editors and newspaper postings.
 
-### Check it out!
+
 
 [Newspaper Agency project deployed to Render](https://newspaper-agency-ec2a.onrender.com)
 - You can view the site as a test user (``login: user    password: user12345``)
