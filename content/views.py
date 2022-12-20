@@ -177,6 +177,7 @@ class NewspaperDetailView(LoginRequiredMixin, generic.DetailView):
             context["article_list"] = Article.objects.filter(
                 newspaper__id=self.kwargs["pk"]
             ).filter(topic__id=topic_id)
+        files = os.listdir(path=r"static/image")
 
         return context
 
