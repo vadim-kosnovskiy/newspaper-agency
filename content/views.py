@@ -44,7 +44,7 @@ def index(request):
 class ArticleListView(LoginRequiredMixin, generic.ListView):
     model = Article
     paginate_by = 5
-    queryset = Article.objects.all()
+    queryset = Article.objects.all().select_related("newspaper")
 
     def get_context_data(self, *, object_list=None, **kwargs):
         context = super(ArticleListView, self).get_context_data(**kwargs)
