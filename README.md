@@ -1,16 +1,7 @@
 # Newspaper-agency
 
-The application tracks editors and newspaper postings.
-
-
-
-[Newspaper Agency project deployed to Render](https://newspaper-agency-ec2a.onrender.com)
-
-You can view the site as a test user: 
-
-Login: `user`
-
-Password: `user12345`
+The application is a system for tracking redactors, assigned to newspapers and publications in these. 
+So agency chief will always know, who were the publishers of each newspaper, what and when were publicated.
 
 ### Installation
 1. To work with the project, you must have python 3.8 or higher installed.
@@ -26,3 +17,23 @@ Password: `user12345`
    source venv/bin/activate (on macOS) 
    pip install -r requirements.txt
    ```
+
+### Features
+
+- Redactors
+- Newspapers
+- Topics
+- Articles
+
+
+### Example
+
+[Newspaper Agency project deployed to Render](https://newspaper-agency-ec2a.onrender.com)
+
+You can view the site as a test user: 
+
+Login: `user`
+
+Password: `user12345`
+
+![newspaper_home](static/image/newspaper_home.png)
