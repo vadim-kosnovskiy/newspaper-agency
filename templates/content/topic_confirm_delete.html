@@ -1,10 +1,17 @@
 {% extends "base.html" %}
 
 {% block content %}
-  <h1>Delete topic?</h1>
-  <form action="" method="post">
-    {% csrf_token %}
-
-    <input type="submit" value="Yes" class="btn btn-danger">
-  </form>
+  <div class="pcoded-content">
+    <div class="card">
+      <div class="card-header">
+        <h3>Delete topic?</h3>
+        <form action="" method="post">
+          {% csrf_token %}
+          <br>
+          <input type="submit" value="Yes" class="btn btn-danger">
+          <a href="{{ request.headers.referer }}" class="btn btn-secondary">Cancel</a>
+        </form>
+      </div>
+    </div>
+  </div>
 {% endblock %}
