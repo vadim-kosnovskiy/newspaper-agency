@@ -8,8 +8,8 @@
         <form action="" method="post">
           {% csrf_token %}
           <br>
-          <input type="submit" value="Yes" class="btn btn-danger">
-          <a href="{{ request.headers.referer }}" class="btn btn-secondary">Cancel</a>
+          <input type="submit" value="Confirm" class="btn btn-outline-danger">
+          <a href="{{ request.headers.referer }}" class="btn btn-outline-primary">Cancel</a>
         </form>
       </div>
     </div>
