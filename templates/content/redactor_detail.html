@@ -5,12 +5,12 @@
     <div class="card">
       <div class="card-header">
         <h4>
-          Username: {{ redactor.username }}
+          {{ redactor.first_name }} {{ redactor.last_name }}
         </h4>
       </div>
       <div class="card-body table-border-style">
         <div class="table-responsive">
-          <p><strong>Name:</strong> {{ redactor.first_name }} {{ redactor.last_name }}</p>
+          <p><strong>Username:</strong> {{ redactor.username }}</p>
           <p><strong>Years of experience:</strong> {{ redactor.years_of_experience }}</p>
           <p><strong>Is staff:</strong> {{ redactor.is_staff }}</p>
           <hr>
