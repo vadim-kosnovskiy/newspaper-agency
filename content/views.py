@@ -74,7 +74,7 @@ class ArticleListView(LoginRequiredMixin, generic.ListView):
 class ArticleCreateView(LoginRequiredMixin, generic.CreateView):
     model = Article
     fields = "__all__"
-    success_url = reverse_lazy("content:article-create")
+    success_url = reverse_lazy("content:article-list")
 
 
 class ArticleDetailView(LoginRequiredMixin, generic.DetailView):
@@ -219,6 +219,7 @@ class RedactorListView(LoginRequiredMixin, generic.ListView):
 class RedactorCreateView(LoginRequiredMixin, generic.CreateView):
     model = Redactor
     form_class = RedactorCreationForm
+    success_url = reverse_lazy("content:redactor-list")
 
 
 class RedactorDetailView(LoginRequiredMixin, generic.DetailView):
